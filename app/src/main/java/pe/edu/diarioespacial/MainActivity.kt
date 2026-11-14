@@ -24,7 +24,9 @@ class MainActivity: ComponentActivity() {
    composable("images") { ImagesScreen(vm,false,{nav.navigate("images/favorites")},{nav.navigate("images/detail/$it")}) }
    composable("images/favorites") { ImagesScreen(vm,true,{nav.popBackStack()},{nav.navigate("images/detail/$it")}) }
    composable("images/detail/{date}") { ImageDetail(vm,it.arguments?.getString("date").orEmpty()){nav.popBackStack()} }
-   composable("asteroids") { Text("Asteroides se integra en el PR de Rojas.", Modifier.padding(16.dp)) }
+   composable("asteroids") { AsteroidsScreen(vm,false,{nav.navigate("asteroids/favorites")},{id,date->nav.navigate("asteroids/detail/${android.net.Uri.encode(id)}/$date")}) }
+   composable("asteroids/favorites") { AsteroidsScreen(vm,true,{nav.popBackStack()},{id,date->nav.navigate("asteroids/detail/${android.net.Uri.encode(id)}/$date")}) }
+   composable("asteroids/detail/{id}/{date}") { AsteroidDetail(vm,it.arguments?.getString("id").orEmpty(),it.arguments?.getString("date").orEmpty()){nav.popBackStack()} }
   } }
  }
 }
