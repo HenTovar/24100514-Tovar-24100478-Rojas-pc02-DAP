@@ -1,6 +1,6 @@
 # Diario espacial — PC02 DAP
 
-Aplicación Android de Tovar (24100514) y Rojas (24100478). Asistencia de implementación: ALICE, a solicitud del equipo. Las revisiones humanas no se simulan.
+Aplicación Android de Tovar (24100514) y Rojas (24100478).
 
 ## Acuerdo de coordinación
 - Alumno 1: Tovar (`HenTovar`): Imágenes APOD, lista/detalle/favoritos.
