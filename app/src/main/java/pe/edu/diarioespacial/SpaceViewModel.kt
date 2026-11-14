@@ -10,7 +10,7 @@ import pe.edu.diarioespacial.data.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 class SpaceViewModel(app: Application): AndroidViewModel(app) {
- private val repo=SpaceRepository(Retrofit.Builder().baseUrl("https://api.nasa.gov/").addConverterFactory(GsonConverterFactory.create()).build().create(NasaApi::class.java),Room.databaseBuilder(app,SpaceDatabase::class.java,"diario.db").build())
+ private val repo=SpaceRepository(Retrofit.Builder().baseUrl("https://api.nasa.gov/").addConverterFactory(GsonConverterFactory.create()).build().create(NasaApi::class.java),Room.databaseBuilder(app,SpaceDatabase::class.java,"diario.db").build(),Retrofit.Builder().baseUrl("https://science.nasa.gov/").addConverterFactory(GsonConverterFactory.create()).build().create(ApodBasicApi::class.java))
  private val range=week()
  val images=repo.db.apods().recent(range.first,range.second).stateIn(viewModelScope,SharingStarted.WhileSubscribed(5000),emptyList())
  val favoriteImages=repo.db.apods().favorites().stateIn(viewModelScope,SharingStarted.WhileSubscribed(5000),emptyList())

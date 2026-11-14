@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage
 import pe.edu.diarioespacial.SpaceViewModel
 import pe.edu.diarioespacial.data.ApodEntity
 @Composable fun ImagesScreen(vm: SpaceViewModel,favorites: Boolean,onAction: ()->Unit,onOpen: (String)->Unit) {
@@ -29,7 +29,7 @@ import pe.edu.diarioespacial.data.ApodEntity
 @Composable private fun ApodMedia(item: ApodEntity,detail: Boolean) {
  if(item.mediaType=="image") {
   val url=if(detail) item.hdurl?.takeIf { it.isNotBlank() } ?: item.url else item.url
-  if(url.isNullOrBlank()) Text("Imagen no disponible") else AsyncImage(model=url,contentDescription=item.title,modifier=Modifier.fillMaxWidth().height(if(detail) 320.dp else 190.dp),contentScale=ContentScale.Fit)
+  if(url.isNullOrBlank()) Text("Imagen no disponible") else SubcomposeAsyncImage(model=url,contentDescription=item.title,modifier=Modifier.fillMaxWidth().height(if(detail) 320.dp else 190.dp),contentScale=ContentScale.Fit,loading={CircularProgressIndicator(Modifier.size(32.dp))},error={Text("No se pudo descargar la imagen. Revisa tu conexión e inténtalo de nuevo.")})
  } else Text(if(item.mediaType=="video") "Contenido en video" else "Contenido no disponible")
 }
 @Composable fun ImageDetail(vm: SpaceViewModel,date: String,onBack: ()->Unit) {

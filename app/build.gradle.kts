@@ -4,7 +4,7 @@ val local = Properties().apply { rootProject.file("local.properties").takeIf { i
 val nasaKey = local.getProperty("NASA_API_KEY", "").replace("\\", "\\\\").replace("\"", "\\\"").replace("\n", "").replace("\r", "")
 android {
  namespace = "pe.edu.diarioespacial"; compileSdk = 35
- defaultConfig { applicationId = "pe.edu.diarioespacial"; minSdk = 26; targetSdk = 35; versionCode = 1; versionName = "1.0"; testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"; buildConfigField("String", "NASA_API_KEY", "\"$nasaKey\"") }
+ defaultConfig { applicationId = "pe.edu.diarioespacial"; minSdk = 26; targetSdk = 35; versionCode = 2; versionName = "1.1"; testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"; buildConfigField("String", "NASA_API_KEY", "\"$nasaKey\"") }
  buildFeatures { compose = true; buildConfig = true }
  compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
  kotlinOptions { jvmTarget = "17" }
@@ -24,6 +24,7 @@ dependencies {
  implementation("com.squareup.retrofit2:retrofit:2.11.0")
  implementation("com.squareup.retrofit2:converter-gson:2.11.0")
  implementation("io.coil-kt:coil-compose:2.7.0")
+ implementation("org.jsoup:jsoup:1.18.3")
  testImplementation("junit:junit:4.13.2")
  testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
  androidTestImplementation("androidx.test.ext:junit:1.2.1")
