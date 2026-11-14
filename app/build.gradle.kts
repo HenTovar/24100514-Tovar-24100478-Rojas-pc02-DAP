@@ -4,7 +4,7 @@ val local = Properties().apply { rootProject.file("local.properties").takeIf { i
 val nasaKey = local.getProperty("NASA_API_KEY", "").replace("\\", "\\\\").replace("\"", "\\\"").replace("\n", "").replace("\r", "")
 android {
  namespace = "pe.edu.diarioespacial"; compileSdk = 35
- defaultConfig { applicationId = "pe.edu.diarioespacial"; minSdk = 26; targetSdk = 35; versionCode = 2; versionName = "1.1"; testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"; buildConfigField("String", "NASA_API_KEY", "\"$nasaKey\"") }
+ defaultConfig { applicationId = "pe.edu.diarioespacial"; minSdk = 26; targetSdk = 35; versionCode = 3; versionName = "1.2"; testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"; buildConfigField("String", "NASA_API_KEY", "\"$nasaKey\"") }
  buildFeatures { compose = true; buildConfig = true }
  compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
  kotlinOptions { jvmTarget = "17" }
