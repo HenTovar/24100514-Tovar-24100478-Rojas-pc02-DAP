@@ -3,8 +3,8 @@
 Aplicación Android de Tovar (24100514) y Rojas (24100478).
 
 ## Acuerdo de coordinación
-- Alumno 1: Tovar (`HenTovar`): Imágenes APOD, lista/detalle/favoritos.
-- Alumno 2: Rojas (`jutt-pixel`): Asteroides NeoWs, lista/detalle/filtro/favoritos.
+- Henry Tovar Landa 1: Tovar (`HenTovar`): Imágenes APOD, lista/detalle/favoritos.
+- Julia Rojas Estrada: Rojas (`jutt-pixel`): Asteroides NeoWs, lista/detalle/filtro/favoritos.
 - Tovar prepara la base compartida (Retrofit, Database, navegación y configuración); Rojas integra Asteroides sobre esa base. Ambas tablas forman parte de la Database común.
 - Cada integrante debe revisar el PR del otro, dejar un comentario y aprobar. No hacer push directo a `main`.
 
